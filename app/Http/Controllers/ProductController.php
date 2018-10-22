@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
       //if you want them to be the same as productResource
         // return ProductResource::collection(Product::all());
-                 return ProductCollection::collection(Product::all());
+                 return ProductCollection::collection(Product::paginate(30));
     }
 
     /**

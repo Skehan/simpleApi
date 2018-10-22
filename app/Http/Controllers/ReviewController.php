@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Review;
 use Illuminate\Http\Request;
+use App\Model\Product;
+use App\Http\Resources\ReviewResource;
 
 class ReviewController extends Controller
 {
@@ -12,9 +14,11 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
-        //
+      //allowed to this becuase in the product model have shwon the relationship
+      return ReviewResource::collection($product->reviews);
+        // return Review::all();
     }
 
     /**
